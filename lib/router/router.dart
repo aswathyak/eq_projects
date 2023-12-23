@@ -1,6 +1,8 @@
+import 'package:eq_soft_project/features/add_customer/add_customer_screen.dart';
+import 'package:eq_soft_project/features/customer_list_screen/customer_list_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../features/home/home_screen.dart';
+// import '../features/home/home_screen.dart';
 import 'router_constants.dart';
 
 class AppRouter {
@@ -21,12 +23,20 @@ class AppRouter {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RouterConstants.homeScreen:
+      case RouterConstants.customerListScreen:
         return PageRouteBuilder(
           transitionDuration: const Duration(milliseconds: 300),
           transitionsBuilder: trasition,
           pageBuilder: ((context, animation, secondaryAnimation) =>
-              const HomeScreen()),
+              const CustomerListScreen()),
+          settings: RouteSettings(name: settings.name),
+        );
+        case RouterConstants.addCustomerScreen:
+        return PageRouteBuilder(
+          transitionDuration: const Duration(milliseconds: 300),
+          transitionsBuilder: trasition,
+          pageBuilder: ((context, animation, secondaryAnimation) =>
+              const AddCustomerScreen()),
           settings: RouteSettings(name: settings.name),
         );
 
